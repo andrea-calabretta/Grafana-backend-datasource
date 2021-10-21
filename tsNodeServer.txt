@@ -26,11 +26,11 @@
 
 		npm init -y
 
-7) istalliamo express:
+7) installiamo express:
 
 		npm i express
 
-8) istalliamo alcune dev dependecies:
+8) installiamo alcune dev dependecies:
 
 		npm i -D typescript ts-node nodemon @types/node @types/express
 

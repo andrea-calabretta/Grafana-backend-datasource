@@ -1,0 +1,54 @@
+
+1) installiamo typescript globalmente:
+
+		sudo npm i -g typescript
+
+2) questo ci darà il compilatore di typescript, per vedere che è stato istallato bene digitare: 
+
+		tsc --version
+
+3) creiamo una directory "src" con dentro un file "app.ts"
+
+4) creiamo un typescript config file con questo comando:
+
+		tsc --init
+
+5) Abbiamo così creato un tsconfig.json e settiamo le voci:
+
+				"target" :"es6"    -> per usare arrow func etc.
+				"outDir" :"./dist", -> l'output della trascompilazione
+				"rootDir":"./src",	-> l'input della trascompilazione
+				"moduleResolution": "node"	-> dobbiamo fare un server node
+
+* da questo momento in poi, se digitiamo solo "tsc" lui sa dove andare a prendere l'input della trascompilazione e dove andare a mettere l'output
+
+6) Ora inizializziamo il package.json con il comando:
+
+		npm init -y
+
+7) istalliamo express:
+
+		npm i express
+
+8) istalliamo alcune dev dependecies:
+
+		npm i -D typescript ts-node nodemon @types/node @types/express
+
+9) nel package.json creiamo alcuni script che ci agevoleranno:
+
+"scripts":{
+	"start": "node dist/app.js",
+	"dev": "nodemon src/app.ts",
+	"build": "tsc -p ."
+}
+
+10) scrivere il server e poi digitare:
+
+	npm run dev (per eseguire in modalità sviluppo, ad ogni cambio il server si riavvia con nodemon)
+	npm run build (per trascompilare il un file javascript)
+	npm run start  (per eseguire il file js ottenuto dalla trascompilazione)
+
+
+
+
+

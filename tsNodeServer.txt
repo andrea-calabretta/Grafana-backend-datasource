@@ -26,13 +26,14 @@
 
 		npm init -y
 
-7) installiamo express:
+7) installiamo express e lodash:
 
 		npm i express
+		npm install lodash --save (nella directory dove c'è il package.json)
 
 8) installiamo alcune dev dependecies:
 
-		npm i -D typescript ts-node nodemon @types/node @types/express
+		npm i -D typescript ts-node nodemon @types/node @types/express @types/lodash
 
 9) nel package.json creiamo alcuni script che ci agevoleranno:
 

@@ -8,9 +8,9 @@ app.use(json()); //extract the json from the upcoming request
 var timeserie = require('./models/series');
 
 
-// var now = Date.now();
+var now = Date.now();
 // console.log("now",now);
-var now = 1634914973983;
+// var now = 1634914973983;
 
 for (var i = timeserie.length -1; i >= 0; i--) {
   var series = timeserie[i];
@@ -55,12 +55,12 @@ app.all('/query', function(req: Request, res: Response){
   console.log(req.body);
 
   var tsResult: any[] = [];
-  let fakeData = timeserie;
+  // let fakeData = timeserie;
   console.log("REQBODY", req.body);
 
   _.each(req.body.targets, function(target) {
-      var k = _.filter(fakeData, function(t) {
-        console.log(fakeData);
+      var k = _.filter(timeserie, function(t) {
+        console.log(timeserie);
         return t.target === target.target;
       });
 
@@ -75,4 +75,4 @@ app.all('/query', function(req: Request, res: Response){
 
 app.listen(3333);
 
-console.log("Server is listening to port 3333 ",now );
+console.log("Server is listening to port 3333 " );

@@ -14,7 +14,7 @@ var now = Date.now();
 
 for (var i = timeserie.length -1; i >= 0; i--) {
   var series = timeserie[i];
-  // console.log("timeserie", timeserie[i]);
+  console.log("timeserie", timeserie[i]);
 
   var decreaser = 0;
   for (var y = series.datapoints.length -1; y >= 0; y--) {

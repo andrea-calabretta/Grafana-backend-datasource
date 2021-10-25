@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-var startTmstp = 1627776000;
+var startTmstp = 1627776000-(8*3600);
 
 function randomIntFromInterval(min: number, max: number) { // min and max included 
   return Math.floor(Math.random() * (max - min + 1) + min)
@@ -52,6 +52,36 @@ console.log("copenaghenExtended: ", copenaghenExtended.length);
 console.log("antartideExtended: ", antartideExtended.length);
 
 
+let degreeTimestampSiracusa : [ number, number][] = [];
+let degreeTimestampCatania : [ number, number][] = [];
+let degreeTimestampMilano : [ number, number][] = [];
+let degreeTimestampMonaco : [ number, number][] = [];
+let degreeTimestampDubai : [ number, number][] = [];
+let degreeTimestampCopenaghen : [ number, number][] = [];
+let degreeTimestampAntartide : [ number, number][] = [];
+
+var now = Date.now();
+// let degreeTimestamp : [number, number] ;
+// for (let index = 0; index < siracusaExtended.length; index++) {
+//   degreeTimestampSiracusa.push([siracusaExtended[index], now+(index*3600) ])
+// }
+
+siracusaExtended.forEach((degree, index) => degreeTimestampSiracusa.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampSiracusa", degreeTimestampSiracusa);
+cataniaExtended.forEach((degree, index) => degreeTimestampCatania.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampCatania", degreeTimestampCatania);
+milanoExtended.forEach((degree, index) => degreeTimestampMilano.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampMilano", degreeTimestampMilano);
+monacoExtended.forEach((degree, index) => degreeTimestampMonaco.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampMonaco", degreeTimestampMonaco);
+dubaiExtended.forEach((degree, index) => degreeTimestampDubai.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampDubai", degreeTimestampDubai);
+copenaghenExtended.forEach((degree, index) => degreeTimestampCopenaghen.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampCopenaghen", degreeTimestampCopenaghen);
+antartideExtended.forEach((degree, index) => degreeTimestampAntartide.push([degree, (now- (index*3600)) ]));
+console.log( "degreeTimestampAntartide", degreeTimestampAntartide);
+
+
 
 // siracusa.forEach(element => {
 //   console.log(randomIntFromInterval(-1, 1));
@@ -60,8 +90,48 @@ console.log("antartideExtended: ", antartideExtended.length);
 
 
 
-var str= "";
+let str = "";
+str += "[\n";
+str += `  {"target": "Temperatura Siracusa", "datapoints":[`
+degreeTimestampSiracusa.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Catania", "datapoints":[`
+degreeTimestampCatania.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Milano", "datapoints":[`
+degreeTimestampMilano.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Monaco", "datapoints":[`
+degreeTimestampMonaco.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Dubai", "datapoints":[`
+degreeTimestampDubai.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Copenaghen", "datapoints":[`
+degreeTimestampCopenaghen.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Dubai", "datapoints":[`
+degreeTimestampDubai.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]}, \n`
+str += `  {"target": "Temperatura Antartide", "datapoints":[`
+degreeTimestampAntartide.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
+str = str.substring(0, str.length - 2);
+str += `]} \n`
+str+="]"
 
-fs.writeFile('generated.txt', str, function(err){
+console.log("str", str);
+
+
+
+
+
+fs.writeFile('./models/series.json', str, function(err){
   if(err) { return console.log(err); } console.log('The file was saved');
 });

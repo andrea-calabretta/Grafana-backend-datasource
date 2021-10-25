@@ -8,7 +8,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 exports.__esModule = true;
 var fs = require("fs");
-var startTmstp = 1627776000;
+var startTmstp = 1627776000 - (8 * 3600);
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -51,11 +51,72 @@ console.log("monacoExtended: ", monacoExtended.length);
 console.log("dubaiExtended: ", dubaiExtended.length);
 console.log("copenaghenExtended: ", copenaghenExtended.length);
 console.log("antartideExtended: ", antartideExtended.length);
+var degreeTimestampSiracusa = [];
+var degreeTimestampCatania = [];
+var degreeTimestampMilano = [];
+var degreeTimestampMonaco = [];
+var degreeTimestampDubai = [];
+var degreeTimestampCopenaghen = [];
+var degreeTimestampAntartide = [];
+var now = Date.now();
+// let degreeTimestamp : [number, number] ;
+// for (let index = 0; index < siracusaExtended.length; index++) {
+//   degreeTimestampSiracusa.push([siracusaExtended[index], now+(index*3600) ])
+// }
+siracusaExtended.forEach(function (degree, index) { return degreeTimestampSiracusa.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampSiracusa", degreeTimestampSiracusa);
+cataniaExtended.forEach(function (degree, index) { return degreeTimestampCatania.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampCatania", degreeTimestampCatania);
+milanoExtended.forEach(function (degree, index) { return degreeTimestampMilano.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampMilano", degreeTimestampMilano);
+monacoExtended.forEach(function (degree, index) { return degreeTimestampMonaco.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampMonaco", degreeTimestampMonaco);
+dubaiExtended.forEach(function (degree, index) { return degreeTimestampDubai.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampDubai", degreeTimestampDubai);
+copenaghenExtended.forEach(function (degree, index) { return degreeTimestampCopenaghen.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampCopenaghen", degreeTimestampCopenaghen);
+antartideExtended.forEach(function (degree, index) { return degreeTimestampAntartide.push([degree, (now - (index * 3600))]); });
+console.log("degreeTimestampAntartide", degreeTimestampAntartide);
 // siracusa.forEach(element => {
 //   console.log(randomIntFromInterval(-1, 1));
 // });
 var str = "";
-fs.writeFile('generated.txt', str, function (err) {
+str += "[\n";
+str += "  {\"target\": \"Temperatura Siracusa\", \"datapoints\":[";
+degreeTimestampSiracusa.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Catania\", \"datapoints\":[";
+degreeTimestampCatania.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Milano\", \"datapoints\":[";
+degreeTimestampMilano.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Monaco\", \"datapoints\":[";
+degreeTimestampMonaco.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Dubai\", \"datapoints\":[";
+degreeTimestampDubai.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Copenaghen\", \"datapoints\":[";
+degreeTimestampCopenaghen.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Dubai\", \"datapoints\":[";
+degreeTimestampDubai.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]}, \n";
+str += "  {\"target\": \"Temperatura Antartide\", \"datapoints\":[";
+degreeTimestampAntartide.forEach(function (_, i, a) { return str += "[" + a[i][0] + ", " + a[i][1] + "], "; });
+str = str.substring(0, str.length - 2);
+str += "]} \n";
+str += "]";
+console.log("str", str);
+fs.writeFile('./models/series.json', str, function (err) {
     if (err) {
         return console.log(err);
     }

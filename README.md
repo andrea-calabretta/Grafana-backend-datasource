@@ -6,7 +6,7 @@
 
 The aim of the project is to plot temperature data, coming from a **Node.js with TypeScript** server, into a **Grafana Plugin**.
 
-![]([Grafana-backend-datasource/diagram.jpg at main · andrea-calabretta/Grafana-backend-datasource (github.com)](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/diagram.jpg))
+![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/diagram.jpg)
 
 #### Adopted technologies:
 

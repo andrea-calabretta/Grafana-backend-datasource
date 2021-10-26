@@ -2,11 +2,11 @@
 
 
 
-#### This is a backend datasource project for Grafana Plugin.
+#### This is a backend datasource project for Grafana Plugin made by Andrea Calabretta & Alessandro Mauro.
 
 The aim of the project is to plot temperature data, coming from a **Node.js with TypeScript** server, into a **Grafana Plugin**.
 
-![diagram](D:\Alessandro\uniCT\Magistrale\Secondo_Anno\1_Internet_Of_Things\Progetto_JOL\Grafana-backend-datasource\img\diagram.jpg)
+![]([Grafana-backend-datasource/diagram.jpg at main · andrea-calabretta/Grafana-backend-datasource (github.com)](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/diagram.jpg))
 
 #### Adopted technologies:
 

@@ -7,7 +7,7 @@
 - ## 	Alessandro Mauro (matr: 1000009156) 
 
 
-#### This is a backend datasource project for Grafana Plugin.
+#### This is a backend datasource project with Grafana Plugin.
 
 The aim of the project is to plot temperature data, coming from a **Node.js with TypeScript** server, into a **Grafana Plugin**.
 
@@ -41,13 +41,13 @@ The aim of the project is to plot temperature data, coming from a **Node.js with
 
   ![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/image-20211026175650280.png)
 
-- Have the server running, click "Explore" from the left panel of Grafana and select a "relative time range" from the dropdown list in the right high corner.
+- Once the server is running, click "Explore" from the left panel of Grafana and select a "relative time range" from the dropdown list in the top right corner.
 
-  You should be able to see graphs like these.
+  You should be able to see a graph like this:
 
 ![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/image-20211026180206299.png)
 
-​		and with a different time range, that's the view to be shown:
+​		you can also set a different past time range (1h, last 24h, last week, last month, etc.), or watch Grafana plotting live generated data :
 
 ![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/image-20211026180337867.png)
 

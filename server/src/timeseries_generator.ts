@@ -16,31 +16,16 @@ let monacoExtended : number[] = [];
 let dubaiExtended : number[] = [];
 let copenaghenExtended : number[] = [];
 let antartideExtended : number[] = [];
-const days = 30;
+const numberOfdays = 30;
 
-[...Array(days)].forEach(_ => siracusaExtended.push(...siracusa.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => cataniaExtended.push(...catania.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => milanoExtended.push(...milano.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => monacoExtended.push(...monaco.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => dubaiExtended.push(...dubai.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => copenaghenExtended.push(...copenaghen.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(days)].forEach(_ => antartideExtended.push(...antartide.map(num => num + randomIntFromInterval(-1, 1))));
-
-// console.log("siracusaExtended", siracusaExtended);
-// console.log("cataniaExtended", cataniaExtended);
-// console.log("milanoExtended", milanoExtended);
-// console.log("monacoExtended", monacoExtended);
-// console.log("dubaiExtended", dubaiExtended);
-// console.log("copenaghenExtended", copenaghenExtended);
-// console.log("antartideExtended", antartideExtended);
-
-// console.log("siracusaExtended: ", siracusaExtended.length);
-// console.log("cataniaExtended: ", cataniaExtended.length);
-// console.log("milanoExtended: ", milanoExtended.length);
-// console.log("monacoExtended: ", monacoExtended.length);
-// console.log("dubaiExtended: ", dubaiExtended.length);
-// console.log("copenaghenExtended: ", copenaghenExtended.length);
-// console.log("antartideExtended: ", antartideExtended.length);
+//creation of CitiesExtended arrays containing psudorandom values, starting from Cities arrays
+[...Array(numberOfdays)].forEach(_ => siracusaExtended.push(...siracusa.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => cataniaExtended.push(...catania.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => milanoExtended.push(...milano.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => monacoExtended.push(...monaco.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => dubaiExtended.push(...dubai.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => copenaghenExtended.push(...copenaghen.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(numberOfdays)].forEach(_ => antartideExtended.push(...antartide.map(num => num + randomIntFromInterval(-1, 1))));
 
 
 let degreeTimestampSiracusa : [ number, number][] = [];
@@ -51,29 +36,18 @@ let degreeTimestampDubai : [ number, number][] = [];
 let degreeTimestampCopenaghen : [ number, number][] = [];
 let degreeTimestampAntartide : [ number, number][] = [];
 
-var now = Date.now();
-// let degreeTimestamp : [number, number] ;
-// for (let index = 0; index < siracusaExtended.length; index++) {
-//   degreeTimestampSiracusa.push([siracusaExtended[index], now+(index*3600) ])
-// }
+let now = Date.now();
 
-siracusaExtended.forEach((degree, index) => degreeTimestampSiracusa.push([degree, (now- (index*3600)) ]));
-cataniaExtended.forEach((degree, index) => degreeTimestampCatania.push([degree, (now- (index*3600)) ]));
-milanoExtended.forEach((degree, index) => degreeTimestampMilano.push([degree, (now- (index*3600)) ]));
-monacoExtended.forEach((degree, index) => degreeTimestampMonaco.push([degree, (now- (index*3600)) ]));
-dubaiExtended.forEach((degree, index) => degreeTimestampDubai.push([degree, (now- (index*3600)) ]));
-copenaghenExtended.forEach((degree, index) => degreeTimestampCopenaghen.push([degree, (now- (index*3600)) ]));
-antartideExtended.forEach((degree, index) => degreeTimestampAntartide.push([degree, (now- (index*3600)) ]));
+//Insertion of timestamps in degreeTimestampCities arrays, starting from CitiesExtened Arrays
+siracusaExtended.forEach((degree, index) => degreeTimestampSiracusa.push([ degree, (now - (index * 3600)) ]));
+cataniaExtended.forEach((degree, index) => degreeTimestampCatania.push([ degree, (now - (index * 3600)) ]));
+milanoExtended.forEach((degree, index) => degreeTimestampMilano.push([ degree, (now - (index * 3600)) ]));
+monacoExtended.forEach((degree, index) => degreeTimestampMonaco.push([ degree, (now - (index * 3600) ) ]));
+dubaiExtended.forEach((degree, index) => degreeTimestampDubai.push([ degree, (now - (index * 3600) ) ]));
+copenaghenExtended.forEach((degree, index) => degreeTimestampCopenaghen.push([ degree, (now - (index * 3600) ) ]));
+antartideExtended.forEach((degree, index) => degreeTimestampAntartide.push([ degree, (now - (index * 3600) ) ]));
 
-// console.log( "degreeTimestampSiracusa", degreeTimestampSiracusa);
-// console.log( "degreeTimestampCatania", degreeTimestampCatania);
-// console.log( "degreeTimestampMilano", degreeTimestampMilano);
-// console.log( "degreeTimestampMonaco", degreeTimestampMonaco);
-// console.log( "degreeTimestampDubai", degreeTimestampDubai);
-// console.log( "degreeTimestampCopenaghen", degreeTimestampCopenaghen);
-// console.log( "degreeTimestampAntartide", degreeTimestampAntartide);
-
-
+//creation of a string containing all data generated in order to write them on a .json file
 let str = "";
 str += "[\n";
 str += `  {"target": "Temperatura Siracusa", "datapoints":[`
@@ -106,13 +80,14 @@ str = str.substring(0, str.length - 2);
 str += `]}, \n`
 str += `  {"target": "Temperatura Antartide", "datapoints":[`
 degreeTimestampAntartide.forEach((_, i, a) => str += `[${a[i][0]}, ${a[i][1]}], `);
-str = str.substring(0, str.length - 2);
+str = str.substring(0, str.length - 2); //delete last coma
 str += `]} \n`
 str+="]"
 
 console.log("str", str);
 
 
+// writing data on file
 fs.writeFile('./models/series.json', str, function(err){
   if(err) { return console.log(err); } console.log('The file was saved');
 });

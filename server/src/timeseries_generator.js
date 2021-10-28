@@ -23,28 +23,15 @@ var monacoExtended = [];
 var dubaiExtended = [];
 var copenaghenExtended = [];
 var antartideExtended = [];
-var days = 30;
-__spreadArrays(Array(days)).forEach(function (_) { return siracusaExtended.push.apply(siracusaExtended, siracusa.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return cataniaExtended.push.apply(cataniaExtended, catania.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return milanoExtended.push.apply(milanoExtended, milano.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return monacoExtended.push.apply(monacoExtended, monaco.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return dubaiExtended.push.apply(dubaiExtended, dubai.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return copenaghenExtended.push.apply(copenaghenExtended, copenaghen.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-__spreadArrays(Array(days)).forEach(function (_) { return antartideExtended.push.apply(antartideExtended, antartide.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
-console.log("siracusaExtended", siracusaExtended);
-console.log("cataniaExtended", cataniaExtended);
-console.log("milanoExtended", milanoExtended);
-console.log("monacoExtended", monacoExtended);
-console.log("dubaiExtended", dubaiExtended);
-console.log("copenaghenExtended", copenaghenExtended);
-console.log("antartideExtended", antartideExtended);
-console.log("siracusaExtended: ", siracusaExtended.length);
-console.log("cataniaExtended: ", cataniaExtended.length);
-console.log("milanoExtended: ", milanoExtended.length);
-console.log("monacoExtended: ", monacoExtended.length);
-console.log("dubaiExtended: ", dubaiExtended.length);
-console.log("copenaghenExtended: ", copenaghenExtended.length);
-console.log("antartideExtended: ", antartideExtended.length);
+var numberOfdays = 30;
+//creation of CitiesExtended arrays containing psudorandom values, starting from Cities arrays
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return siracusaExtended.push.apply(siracusaExtended, siracusa.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return cataniaExtended.push.apply(cataniaExtended, catania.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return milanoExtended.push.apply(milanoExtended, milano.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return monacoExtended.push.apply(monacoExtended, monaco.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return dubaiExtended.push.apply(dubaiExtended, dubai.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return copenaghenExtended.push.apply(copenaghenExtended, copenaghen.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(numberOfdays)).forEach(function (_) { return antartideExtended.push.apply(antartideExtended, antartide.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
 var degreeTimestampSiracusa = [];
 var degreeTimestampCatania = [];
 var degreeTimestampMilano = [];
@@ -53,27 +40,15 @@ var degreeTimestampDubai = [];
 var degreeTimestampCopenaghen = [];
 var degreeTimestampAntartide = [];
 var now = Date.now();
-// let degreeTimestamp : [number, number] ;
-// for (let index = 0; index < siracusaExtended.length; index++) {
-//   degreeTimestampSiracusa.push([siracusaExtended[index], now+(index*3600) ])
-// }
+//Insertion of timestamps in degreeTimestampCities arrays, starting from CitiesExtened Arrays
 siracusaExtended.forEach(function (degree, index) { return degreeTimestampSiracusa.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampSiracusa", degreeTimestampSiracusa);
 cataniaExtended.forEach(function (degree, index) { return degreeTimestampCatania.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampCatania", degreeTimestampCatania);
 milanoExtended.forEach(function (degree, index) { return degreeTimestampMilano.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampMilano", degreeTimestampMilano);
 monacoExtended.forEach(function (degree, index) { return degreeTimestampMonaco.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampMonaco", degreeTimestampMonaco);
 dubaiExtended.forEach(function (degree, index) { return degreeTimestampDubai.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampDubai", degreeTimestampDubai);
 copenaghenExtended.forEach(function (degree, index) { return degreeTimestampCopenaghen.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampCopenaghen", degreeTimestampCopenaghen);
 antartideExtended.forEach(function (degree, index) { return degreeTimestampAntartide.push([degree, (now - (index * 3600))]); });
-console.log("degreeTimestampAntartide", degreeTimestampAntartide);
-// siracusa.forEach(element => {
-//   console.log(randomIntFromInterval(-1, 1));
-// });
+//creation of a string containing all data generated in order to write them on a .json file
 var str = "";
 str += "[\n";
 str += "  {\"target\": \"Temperatura Siracusa\", \"datapoints\":[";
@@ -110,6 +85,7 @@ str = str.substring(0, str.length - 2);
 str += "]} \n";
 str += "]";
 console.log("str", str);
+// writing data on file
 fs.writeFile('./models/series.json', str, function (err) {
     if (err) {
         return console.log(err);

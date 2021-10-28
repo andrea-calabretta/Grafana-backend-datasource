@@ -1,5 +1,10 @@
 # Grafana-backend-datasource
 
+## Autors: 
+
+- ## 	Andrea Calabretta (matricola: 1000008923)
+
+- ## 	Alessandro Mauro (matricola: 1000009156) 
 
 
 #### This is a backend datasource project for Grafana Plugin made by Andrea Calabretta & Alessandro Mauro.

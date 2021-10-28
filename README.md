@@ -2,12 +2,12 @@
 
 ## Autors: 
 
-- ## 	Andrea Calabretta (matricola: 1000008923)
+- ## 	Andrea Calabretta (matr: 1000008923)
 
-- ## 	Alessandro Mauro (matricola: 1000009156) 
+- ## 	Alessandro Mauro (matr: 1000009156) 
 
 
-#### This is a backend datasource project for Grafana Plugin made by Andrea Calabretta & Alessandro Mauro.
+#### This is a backend datasource project for Grafana Plugin.
 
 The aim of the project is to plot temperature data, coming from a **Node.js with TypeScript** server, into a **Grafana Plugin**.
 

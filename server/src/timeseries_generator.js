@@ -1,23 +1,14 @@
 "use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
 };
 exports.__esModule = true;
 var fs = require("fs");
-var startTmstp = 1627776000 - (8 * 3600);
-function randomIntFromInterval(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
-// for (let i = 0; i < 25; i++ ){
-//   console.log(startTmstp + "     " , -i);
-//   startTmstp -= 3600;
-// }
+var utils_1 = require("./utils");
 var siracusa = [34, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 27, 30, 32, 34, 38, 45, 48, 49, 44, 42, 38];
 var catania = [33, 31, 30, 27, 25, 25, 26, 24, 24, 23, 22, 24, 26, 27, 30, 32, 35, 41, 42, 42, 40, 38, 34];
 var milano = [30, 28, 27, 25, 25, 25, 24, 23, 22, 22, 21, 22, 23, 25, 28, 29, 30, 33, 34, 34, 33, 32, 31];
@@ -32,13 +23,14 @@ var monacoExtended = [];
 var dubaiExtended = [];
 var copenaghenExtended = [];
 var antartideExtended = [];
-__spreadArray([], Array(30), true).forEach(function (_) { return siracusaExtended.push.apply(siracusaExtended, siracusa.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return cataniaExtended.push.apply(cataniaExtended, catania.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return milanoExtended.push.apply(milanoExtended, milano.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return monacoExtended.push.apply(monacoExtended, monaco.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return dubaiExtended.push.apply(dubaiExtended, dubai.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return copenaghenExtended.push.apply(copenaghenExtended, copenaghen.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
-__spreadArray([], Array(30), true).forEach(function (_) { return antartideExtended.push.apply(antartideExtended, antartide.map(function (num) { return num + randomIntFromInterval(-1, 1); })); });
+var days = 30;
+__spreadArrays(Array(days)).forEach(function (_) { return siracusaExtended.push.apply(siracusaExtended, siracusa.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return cataniaExtended.push.apply(cataniaExtended, catania.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return milanoExtended.push.apply(milanoExtended, milano.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return monacoExtended.push.apply(monacoExtended, monaco.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return dubaiExtended.push.apply(dubaiExtended, dubai.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return copenaghenExtended.push.apply(copenaghenExtended, copenaghen.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
+__spreadArrays(Array(days)).forEach(function (_) { return antartideExtended.push.apply(antartideExtended, antartide.map(function (num) { return num + utils_1.randomIntFromInterval(-1, 1); })); });
 console.log("siracusaExtended", siracusaExtended);
 console.log("cataniaExtended", cataniaExtended);
 console.log("milanoExtended", milanoExtended);

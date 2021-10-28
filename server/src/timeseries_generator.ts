@@ -1,15 +1,5 @@
 import * as fs from 'fs';
-
-var startTmstp = 1627776000-(8*3600);
-
-function randomIntFromInterval(min: number, max: number) { // min and max included 
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-// for (let i = 0; i < 25; i++ ){
-//   console.log(startTmstp + "     " , -i);
-//   startTmstp -= 3600;
-// }
+import { randomIntFromInterval } from './utils';
 
 let siracusa: number[] = [ 34, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 27, 30, 32, 34, 38, 45, 48, 49, 44, 42, 38];
 let catania: number[] = [ 33, 31, 30 ,27, 25, 25, 26, 24, 24, 23, 22, 24, 26, 27, 30, 32, 35, 41, 42, 42, 40, 38, 34];
@@ -26,30 +16,31 @@ let monacoExtended : number[] = [];
 let dubaiExtended : number[] = [];
 let copenaghenExtended : number[] = [];
 let antartideExtended : number[] = [];
+const days = 30;
 
-[...Array(30)].forEach(_ => siracusaExtended.push(...siracusa.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => cataniaExtended.push(...catania.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => milanoExtended.push(...milano.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => monacoExtended.push(...monaco.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => dubaiExtended.push(...dubai.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => copenaghenExtended.push(...copenaghen.map(num => num + randomIntFromInterval(-1, 1))));
-[...Array(30)].forEach(_ => antartideExtended.push(...antartide.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => siracusaExtended.push(...siracusa.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => cataniaExtended.push(...catania.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => milanoExtended.push(...milano.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => monacoExtended.push(...monaco.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => dubaiExtended.push(...dubai.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => copenaghenExtended.push(...copenaghen.map(num => num + randomIntFromInterval(-1, 1))));
+[...Array(days)].forEach(_ => antartideExtended.push(...antartide.map(num => num + randomIntFromInterval(-1, 1))));
 
-console.log("siracusaExtended", siracusaExtended);
-console.log("cataniaExtended", cataniaExtended);
-console.log("milanoExtended", milanoExtended);
-console.log("monacoExtended", monacoExtended);
-console.log("dubaiExtended", dubaiExtended);
-console.log("copenaghenExtended", copenaghenExtended);
-console.log("antartideExtended", antartideExtended);
+// console.log("siracusaExtended", siracusaExtended);
+// console.log("cataniaExtended", cataniaExtended);
+// console.log("milanoExtended", milanoExtended);
+// console.log("monacoExtended", monacoExtended);
+// console.log("dubaiExtended", dubaiExtended);
+// console.log("copenaghenExtended", copenaghenExtended);
+// console.log("antartideExtended", antartideExtended);
 
-console.log("siracusaExtended: ", siracusaExtended.length);
-console.log("cataniaExtended: ", cataniaExtended.length);
-console.log("milanoExtended: ", milanoExtended.length);
-console.log("monacoExtended: ", monacoExtended.length);
-console.log("dubaiExtended: ", dubaiExtended.length);
-console.log("copenaghenExtended: ", copenaghenExtended.length);
-console.log("antartideExtended: ", antartideExtended.length);
+// console.log("siracusaExtended: ", siracusaExtended.length);
+// console.log("cataniaExtended: ", cataniaExtended.length);
+// console.log("milanoExtended: ", milanoExtended.length);
+// console.log("monacoExtended: ", monacoExtended.length);
+// console.log("dubaiExtended: ", dubaiExtended.length);
+// console.log("copenaghenExtended: ", copenaghenExtended.length);
+// console.log("antartideExtended: ", antartideExtended.length);
 
 
 let degreeTimestampSiracusa : [ number, number][] = [];
@@ -67,27 +58,20 @@ var now = Date.now();
 // }
 
 siracusaExtended.forEach((degree, index) => degreeTimestampSiracusa.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampSiracusa", degreeTimestampSiracusa);
 cataniaExtended.forEach((degree, index) => degreeTimestampCatania.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampCatania", degreeTimestampCatania);
 milanoExtended.forEach((degree, index) => degreeTimestampMilano.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampMilano", degreeTimestampMilano);
 monacoExtended.forEach((degree, index) => degreeTimestampMonaco.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampMonaco", degreeTimestampMonaco);
 dubaiExtended.forEach((degree, index) => degreeTimestampDubai.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampDubai", degreeTimestampDubai);
 copenaghenExtended.forEach((degree, index) => degreeTimestampCopenaghen.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampCopenaghen", degreeTimestampCopenaghen);
 antartideExtended.forEach((degree, index) => degreeTimestampAntartide.push([degree, (now- (index*3600)) ]));
-console.log( "degreeTimestampAntartide", degreeTimestampAntartide);
 
-
-
-// siracusa.forEach(element => {
-//   console.log(randomIntFromInterval(-1, 1));
-// });
-
-
+// console.log( "degreeTimestampSiracusa", degreeTimestampSiracusa);
+// console.log( "degreeTimestampCatania", degreeTimestampCatania);
+// console.log( "degreeTimestampMilano", degreeTimestampMilano);
+// console.log( "degreeTimestampMonaco", degreeTimestampMonaco);
+// console.log( "degreeTimestampDubai", degreeTimestampDubai);
+// console.log( "degreeTimestampCopenaghen", degreeTimestampCopenaghen);
+// console.log( "degreeTimestampAntartide", degreeTimestampAntartide);
 
 
 let str = "";
@@ -127,9 +111,6 @@ str += `]} \n`
 str+="]"
 
 console.log("str", str);
-
-
-
 
 
 fs.writeFile('./models/series.json', str, function(err){

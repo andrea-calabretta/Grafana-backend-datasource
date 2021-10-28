@@ -47,7 +47,7 @@ The aim of the project is to plot temperature data, coming from a **Node.js with
 
 ![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/image-20211026180206299.png)
 
-​		you can also set a different past time range (1h, last 24h, last week, last month, etc.), or watch Grafana plotting live generated data :
+​		you can also set a different past time range (last 24 hours, last 7 days, last 30 days, etc.), or watch Grafana plotting live generated data :
 
 ![img](https://github.com/andrea-calabretta/Grafana-backend-datasource/blob/main/img/image-20211026180337867.png)
 

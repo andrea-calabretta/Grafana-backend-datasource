@@ -7,7 +7,7 @@
 - ## 	Alessandro Mauro (matr: 1000009156) 
 
 
-#### This is a backend datasource project with Grafana Plugin.
+#### This is a backend datasource project with Grafana Plugin (video here: https://www.youtube.com/watch?v=Sf-oivhqr_g).
 
 The aim of the project is to plot temperature data, coming from a **Node.js with TypeScript** server, into a **Grafana Plugin**.
 
